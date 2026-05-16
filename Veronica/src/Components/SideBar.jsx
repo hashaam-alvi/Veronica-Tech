@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./sidebar.css";
 import VerLogo from "../assets/VeronicaLogo.png"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 export default function Sidebar() {
@@ -41,10 +41,10 @@ export default function Sidebar() {
           </div>
 
           <div className="sidebar-content">
-            <Link to="/" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</Link>
-            <Link to="/"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >About Us</Link>
-            <Link to="/"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</Link>
-            <Link to="/"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</Link>
+            <NavLink to="/" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</NavLink>
+            <NavLink to="/about"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >About Us</NavLink>
+            <NavLink to="/s"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</NavLink>
+            <NavLink to="/d"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</NavLink>
 
 
           </div>

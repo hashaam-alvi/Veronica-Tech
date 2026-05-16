@@ -13,12 +13,13 @@ function App() {
     <>
       <BrowserRouter>
         <SideBar />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} /> */}
-        </Routes>
+        <div className="appContainer">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} /> */}
+          </Routes>
+          </div>
       </BrowserRouter>
     </>
   );
