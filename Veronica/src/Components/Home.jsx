@@ -37,6 +37,29 @@ export default function Home() {
     return () => clearTimeout(handleTyping);
   }, [displayedText, isDeleting]); // Runs every time the text or mode changes
 
+  const cardsData = [
+    {
+      icon: "🎖️", // Replace with an icon library component if desired
+      title: "Quality Services",
+      desc: "Delivering innovative, reliable, and scalable technology solutions to help businesses thrive in the digital era."
+    },
+    {
+      icon: "💡",
+      title: "Valuable Ideas",
+      desc: "Transforming valuable ideas into cutting-edge technology solutions that drive success."
+    },
+    {
+      icon: "💵",
+      title: "Budget Friendly",
+      desc: "Smart, budget-friendly tech solutions without compromising on quality."
+    },
+    {
+      icon: "🎧",
+      title: "Suport 24/7",
+      desc: "Round-the-clock support to keep your technology running seamlessly."
+    }
+  ];
+
   return (
     <div className="homeMain">
     <div className="homeContainer">
@@ -58,7 +81,19 @@ export default function Home() {
         <button className="heroBtn">Get in Touch</button>
       </div>
     </div>
-    <h1>212</h1>
+    <div className="servicesSection">
+        <h1>Our Motto</h1>  
+        <p>Our mission is to deliver reliable, tailored, and future-ready ERP and software solutions that streamline operations, enhance decision-making, and enable businesses to achieve their goals with confidence and agility.</p>
+      <div className="cardsContainer">
+        {cardsData.map((card, index) => (
+          <div className="serviceCard" key={index}>
+            <div className="cardIcon">{card.icon}</div>
+            <h3 className="cardTitle">{card.title}</h3>
+            <p className="cardDesc">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
     </div>
     
   );

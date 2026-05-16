@@ -42,6 +42,7 @@ export default function Sidebar() {
 
           <div className="sidebar-content">
             <NavLink to="/" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</NavLink>
+            <NavLink to="/e" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Projects</NavLink>
             <NavLink to="/about"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >About Us</NavLink>
             <NavLink to="/s"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</NavLink>
             <NavLink to="/d"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</NavLink>
