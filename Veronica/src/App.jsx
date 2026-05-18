@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SideBar from "./Components/SideBar"
 import Home from "./Components/Home";
 import About from "./Components/About/About";
+import Contact from "./Components/Contact/Contact";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             {/* <Route path="/services" element={<Services />} /> */}
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           </div>
       </BrowserRouter>

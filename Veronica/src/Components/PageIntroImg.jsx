@@ -11,7 +11,7 @@ export default function PageIntoImg({ title, description, imageSrc, onBtnClick }
           alt={title || "Hero banner"} 
           className="heroBgImage"
           loading="eager" 
-          fetchpriority="high"
+          fetchPriority="high"
         />
       )}
 

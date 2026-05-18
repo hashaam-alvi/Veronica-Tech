@@ -3,6 +3,8 @@ import AboutBG from "../../assets/AboutBG.jpg";
 import "./About.css";
 import CommunicationForm from "../CommunicationForm";
 import Footer from "../Footer";
+import Slider from "../Slider";
+import {AboutValuesData} from "../SliderContent"
 
 export default function About() {
   const imageData = {
@@ -65,6 +67,9 @@ export default function About() {
           </section>
         ))}
       </div>
+
+      <h1 className="ValuesTitle">Our Values</h1>
+      <Slider mottoCardsData={AboutValuesData} />
 
       <CommunicationForm/>
       <Footer/>

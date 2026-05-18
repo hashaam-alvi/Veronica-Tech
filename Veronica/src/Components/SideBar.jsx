@@ -44,14 +44,14 @@ export default function Sidebar() {
             <NavLink to="/" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</NavLink>
             <NavLink to="/e" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Projects</NavLink>
             <NavLink to="/about"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >About Us</NavLink>
-            <NavLink to="/s"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</NavLink>
+            <NavLink to="/contact"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</NavLink>
             <NavLink to="/d"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</NavLink>
 
 
           </div>
 
           <div className="sidebar-footer">
-            <button onClick={123}>Logout</button>
+            <button >Logout</button>
           </div>
 
         </div>
