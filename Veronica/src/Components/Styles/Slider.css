@@ -1,25 +1,9 @@
 .servicesSection {
     width: 100%;
-    padding: 80px 8%;
+    padding: 50px 8%;
     background-color: #f8fafc;
     box-sizing: border-box;
     text-align: center;
-}
-
-/* Section Heading */
-.servicesSection h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 16px;
-}
-
-.servicesSection .homeMoto {
-    max-width: 700px;
-    margin: 0 auto 50px auto;
-    font-size: 1.3rem;
-    color: #64748b;
-    line-height: 1.6;
 }
 
 /* Cards Container */
@@ -61,7 +45,7 @@
 .cardTitle {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #0f172a;
+    color: #004682;
     margin-bottom: 10px;
 }
 

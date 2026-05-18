@@ -150,3 +150,26 @@ html, body {
     }
 }
 
+.servicesSection1 {
+    width: 100%;
+    padding: 50px 8% 0;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.servicesSection1 h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #004682;
+    margin-bottom: 16px;
+}
+
+.servicesSection1 .homeMoto {
+    max-width: 700px;
+    margin: 0 auto 0 auto;
+    font-size: 1.3rem;
+    color: #64748b;
+    line-height: 1.6;
+    
+}
