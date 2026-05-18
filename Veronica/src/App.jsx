@@ -6,6 +6,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SideBar from "./Components/SideBar"
 import Home from "./Components/Home";
+import About from "./Components/About/About";
+
 
 function App() {
 
@@ -16,8 +18,8 @@ function App() {
         <div className="appContainer">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<About />} /> */}
+            {/* <Route path="/services" element={<Services />} /> */}
+            <Route path="/about" element={<About />} />
           </Routes>
           </div>
       </BrowserRouter>

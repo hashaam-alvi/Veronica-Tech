@@ -1,0 +1,117 @@
+
+.heroContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Takes full viewport height instantly */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Dynamic centering framework */
+    overflow: hidden;
+    background-color: #0f172a; /* Safe dark backdrop while asset loads */
+    box-sizing: border-box;
+}
+
+/* Background Cover Image Setup */
+.heroBgImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps aspect ratios clean without distorting image */
+    object-position: center;
+    z-index: 1;
+}
+
+/* Contrast Protection Overlay Layer */
+.videoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark gradient blueprint ensuring text is readable on top of light images */
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.5),
+        rgba(15, 23, 42, 0.75)
+    );
+    z-index: 2;
+}
+
+/* Centralized Copy Stack Wrapper */
+.heroContent {
+    position: relative;
+    z-index: 3; /* Forces text to layer strictly above dark overlay track */
+    max-width: 850px;
+    width: 90%;
+    padding: 0 20px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Fluid Typography Headline Scaling */
+.heroTitle {
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: clamp(2.5rem, 6vw, 4.2rem); /* Fluid scaling from mobile to desktop */
+}
+
+/* Subtitle Body Description Box */
+.heroSubtitle {
+    line-height: 1.6;
+    color: #e2e8f0; /* Soft secondary white for structural balance */
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+/* Tactile Tech Call-To-Action Button Block */
+.heroBtn {
+    background-color: #055dc2; /* Kept your exact tech blue color scheme */
+    color: white;
+    border: 2px solid transparent; /* Prevents shifting layouts on frame changes */
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Capsule pill curvature shape */
+    cursor: pointer;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px #00387a; /* Premium deep brand drop glow */
+    box-sizing: border-box;
+    /* Ultra-fluid spring motion transition curves for professional responsiveness */
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Hover Physics State Module */
+.heroBtn:hover {
+    background-color: #055dc2;
+    transform: translateY(-2px); /* Lifts standard layer height position offset upwards */
+    box-shadow: 0 6px 20px rgba(0, 56, 122, 0.85); /* Intensified soft glow footprint */
+}
+
+/* Active Immediate Click Interaction Press Module */
+.heroBtn:active {
+    background-color: #00387a; /* Darker navy shade mutation feedback */
+    transform: translateY(1px) scale(0.98); /* Compresses capsule size inward realistically */
+    box-shadow: 0 2px 8px rgba(0, 119, 182, 0.4); /* Flattens depth drop shadows */
+}
+
+/* ==========================================
+   MOBILE SCREEN ORIENTATION WRAPPERS
+   ========================================== */
+/* Landscape Mobile Layout Adjuster */
+@media (max-height: 500px) and (orientation: landscape) {
+    .heroContainer {
+        height: auto;
+        padding: 100px 0; /* Ensures content never clips out of landscape views */
+    }
+}

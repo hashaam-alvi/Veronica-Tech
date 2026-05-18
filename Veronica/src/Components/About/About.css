@@ -1,0 +1,131 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Structural Wrapper Component Block */
+.aboutSectionsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Even spacing layout buffers between modules */
+    padding: 40px 0 100px 0;
+}
+
+/* 💻 Desktop Default Layout Structure */
+.missionSection {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+    /* Side-by-side flex placement layout grid */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; /* Keeps items aligned cleanly to the top */
+    gap: 40px;
+}
+
+/* Heading Typography Layout Context */
+.missionHeading {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: black; /* Clean tech blue title brand selection alignment */
+    margin: 0;
+    flex: 1; /* Allows title layout container space parameters to dynamically adjust */
+    min-width: 250px;
+    position: relative;
+    left: 100px;
+}
+
+/* Secondary Bold Contrast Span Selector */
+.highlightText, .VerHead {
+    color: #00387a;
+}
+
+.VerHead{
+    margin: 30px 0;
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: bolder;
+
+}
+
+.VerDesc{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.75; /* Premium reading layout height tracking gap */
+    color: #475569;
+    white-space: pre-line; /* 🎯 This tells the browser to render \n as real line breaks */
+    text-align: center;
+    text-justify: inter-word;
+    line-height: 1.8;
+}
+
+/* Card Content Box Frame Setup */
+.missionBox {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px; /* Premium smooth card rounded styling */
+    padding: 45px 40px;
+    box-sizing: border-box;
+    width: 65%; /* Restricts card size parameter crosswise layout bounds */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Soft, premium drop shadow depth */
+    position: relative;
+    top: 70px;
+    right: 50px;
+}
+
+/* Statement Body Paragraph Text Layout */
+.missionText {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.75; /* Premium reading layout height tracking gap */
+    color: #475569; /* Soft dark slate for supreme crisp reading contrast layout metrics */
+    margin: 0;
+    text-align: left;
+}
+
+/* ==========================================
+   📱 MOBILE SCREEN MEDIA OVERRIDES (Up to 767px wide)
+   ========================================== */
+@media (max-width: 767px) {
+    .missionSection {
+        flex-direction: column; /* Stacks header above the text block card */
+        align-items: flex-start;
+        gap: 24px;
+        padding: 0 24px;
+    }
+
+    .missionBox {
+        width: 100%; /* Spans full horizontal container track widths on mobile scales */
+        padding: 30px 24px;
+        border-radius: 18px;
+        position: static;
+        top: 0;
+        right:0;
+    }
+    
+    .missionText {
+        font-size: 1.05rem;
+        /* font */
+        text-align: justify;
+         text-justify: inter-word;
+    }
+
+    .missionHeading{
+        position: static;
+        left: 0;
+    }
+
+    .VerDesc{
+        margin: 0;
+        width: 80%;
+    }
+}
