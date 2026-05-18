@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BGVideo from "../assets/BGVideo.mp4";
 import "./Styles/Home.css";
+import Slider  from "./Slider";
 
 export default function Home() {
   const fullText = "Get the right technology today to reach more customers tomorrow. Our team handles the code so your company can scale without limits.";
@@ -37,7 +38,7 @@ export default function Home() {
     return () => clearTimeout(handleTyping);
   }, [displayedText, isDeleting]); // Runs every time the text or mode changes
 
-  const cardsData = [
+  const mottoCardsData = [
     {
       icon: "🎖️", // Replace with an icon library component if desired
       title: "Quality Services",
@@ -81,19 +82,7 @@ export default function Home() {
         <button className="heroBtn">Get in Touch</button>
       </div>
     </div>
-    <div className="servicesSection">
-        <h1>Our Motto</h1>  
-        <p className="homeMoto">Our mission is to deliver reliable, tailored, and future-ready ERP and software solutions that streamline operations, enhance decision-making, and enable businesses to achieve their goals with confidence and agility.</p>
-      <div className="cardsContainer">
-        {cardsData.map((card, index) => (
-          <div className="serviceCard" key={index}>
-            <div className="cardIcon">{card.icon}</div>
-            <h3 className="cardTitle">{card.title}</h3>
-            <p className="cardDesc">{card.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+        <Slider mottoCardsData={mottoCardsData} />
     </div>
     
   );
