@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc; /* Added background so form boundaries are visible */
+}
+/* Base Form Style (Mobile-First) */
+form {
+  margin: 20px auto;
+  padding: 20px; /* Reduced slightly from 30px so it fits small devices beautifully */
+  width: 90vw;   /* Takes up 90% of screen width on small mobile devices */
+  max-width: 340px; /* Keeps the form perfectly sized on standard mobile screens */
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Crucial: includes padding inside the width calculation */
+}
+
+/* Tablet Screens layout adjustment */
+@media (min-width: 550px) {
+  form {
+    max-width: 450px;
+    padding: 30px; /* Returns to your spacious padding on larger screens */
+  }
+}
+
+/* Desktop Screens layout adjustment */
+@media (min-width: 755px) {
+  form {
+    max-width: 500px;
+  }
+}
+
+
+.rows {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Input Fields Styling */
+.rows input, .rows select, .rows textarea {
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 100%;
+  border: 2px solid #cbd5e1;
+  text-align: center;
+  outline: none;
+  background-color: #f8fafc;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.rows textarea {
+    text-align:start;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center; /* Vertically centers checkbox with the text */
+    gap: 12px;           /* Perfect, crisp spacing between box and text */
+    padding: 6px 0;      /* Vertical spacing between item rows */
+    font-size: 0.95rem;
+    color: #475569;      /* Clean neutral text color matching image */
+    cursor: pointer;
+    font-weight: 500;
+    padding-left: 1.5rem;
+}
+
+/* Ensure the checkbox size matches the layout precisely */
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;           /* Removes default browser layout margins */
+    cursor: pointer;
+}
+
+/* Responsive adjustment for wider screens */
+@media (min-width: 500px) {
+  .rows {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .rows input {
+    width: 50%;
+  }
+}
+
+/* Input Interactive States */
+.rows input:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.rows input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.no-spinner[type=number] {
+  -moz-appearance: textfield;
+}

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import BGVideo from "../assets/BGVideo.mp4";
 import "./Styles/Home.css";
 import Slider  from "./Slider";
+import {servicesCardsData , mottoCardsData} from "./SliderContent"
+import CommunicationForm from "./CommunicationForm";
 
 export default function Home() {
   const fullText = "Get the right technology today to reach more customers tomorrow. Our team handles the code so your company can scale without limits.";
@@ -38,28 +40,8 @@ export default function Home() {
     return () => clearTimeout(handleTyping);
   }, [displayedText, isDeleting]); // Runs every time the text or mode changes
 
-  const mottoCardsData = [
-    {
-      icon: "🎖️", // Replace with an icon library component if desired
-      title: "Quality Services",
-      desc: "Delivering innovative, reliable, and scalable technology solutions to help businesses thrive in the digital era."
-    },
-    {
-      icon: "💡",
-      title: "Valuable Ideas",
-      desc: "Transforming valuable ideas into cutting-edge technology solutions that drive success."
-    },
-    {
-      icon: "💵",
-      title: "Budget Friendly",
-      desc: "Smart, budget-friendly tech solutions without compromising on quality."
-    },
-    {
-      icon: "🎧",
-      title: "Suport 24/7",
-      desc: "Round-the-clock support to keep your technology running seamlessly."
-    }
-  ];
+  
+
 
   return (
     <div className="homeMain">
@@ -87,7 +69,26 @@ export default function Home() {
         <p className="homeMoto">Our mission is to deliver reliable, tailored, and future-ready ERP and software solutions that streamline operations, enhance decision-making, and enable businesses to achieve their goals with confidence and agility.</p>
     </div>
         <Slider mottoCardsData={mottoCardsData} />
-        
+    <div className="servicesSection1">
+        <h1>Our Services</h1>  
+        <p className="homeMoto">Let us Help You</p>
+    </div>
+
+    <Slider mottoCardsData={servicesCardsData} />
+    <div className="moreServices-btn">
+      <button className="heroBtn" >View More Services</button>
+    </div>
+
+    
+    <div className="servicesSection1">
+        <h1>At Veronica,</h1>  
+        <p className="homeMoto"> Our mission is to harness the power of technology to create innovative, reliable, and impactful solutions that empower businesses and people. Backed by modern expertise and a passion for digital transformation, we deliver fresh perspectives with enterprise-grade execution. Discover how we turn vision into reality.</p>
+    </div>    
+      <div className="moreServices-btn">
+        <button className="heroBtn" style={{margin: "40px 0"}}>About Us</button>
+      </div>
+
+      <CommunicationForm/>
     </div>
     
   );

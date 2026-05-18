@@ -140,11 +140,11 @@ html, body {
     }
 
     .heroTitle {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .heroSubtitle {
-        font-size: 1rem;
+        font-size: 2rem;
         min-height: 4.5em;
         /* Extra spacing framework for mobile layout stacking text wrap */
     }
@@ -172,4 +172,11 @@ html, body {
     color: #64748b;
     line-height: 1.6;
     
+}
+
+.moreServices-btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color:#f8fafc;
 }
