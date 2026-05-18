@@ -4,6 +4,7 @@ import "./Styles/Home.css";
 import Slider  from "./Slider";
 import {servicesCardsData , mottoCardsData} from "./SliderContent"
 import CommunicationForm from "./CommunicationForm";
+import Footer from "./Footer";
 
 export default function Home() {
   const fullText = "Get the right technology today to reach more customers tomorrow. Our team handles the code so your company can scale without limits.";
@@ -89,6 +90,8 @@ export default function Home() {
       </div>
 
       <CommunicationForm/>
+
+      <Footer/>
     </div>
     
   );
