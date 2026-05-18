@@ -166,7 +166,7 @@ html, body {
     margin-bottom: 16px;
 }
 
-.servicesSection p {
+.servicesSection .homeMoto {
     max-width: 700px;
     margin: 0 auto 50px auto;
     font-size: 1.3rem;
@@ -187,12 +187,10 @@ html, body {
     flex: 1;
     padding: 35px 25px;
     border-radius: 18px;
-    /* 🔥 softer modern UI */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
-    text-align: left;
+    text-align: center;
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }
@@ -200,7 +198,7 @@ html, body {
 /* Hover */
 .serviceCard:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     border-color: #e2e8f0;
 }
 
@@ -230,11 +228,13 @@ html, body {
 
 @media (max-width: 1024px) {
     .cardsContainer {
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
     }
 
     .serviceCard {
         flex: 1 1 calc(50% - 12px);
+        min-width: 200px;
+        flex-wrap: wrap;
     }
 }
 
@@ -261,5 +261,11 @@ html, body {
 
     .servicesSection p {
         font-size: 0.95rem;
+    }
+}
+
+@media (min-width:1050px){
+    .serviceCard{
+        min-width: 150px;
     }
 }

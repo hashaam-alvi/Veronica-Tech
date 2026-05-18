@@ -83,7 +83,7 @@ export default function Home() {
     </div>
     <div className="servicesSection">
         <h1>Our Motto</h1>  
-        <p>Our mission is to deliver reliable, tailored, and future-ready ERP and software solutions that streamline operations, enhance decision-making, and enable businesses to achieve their goals with confidence and agility.</p>
+        <p className="homeMoto">Our mission is to deliver reliable, tailored, and future-ready ERP and software solutions that streamline operations, enhance decision-making, and enable businesses to achieve their goals with confidence and agility.</p>
       <div className="cardsContainer">
         {cardsData.map((card, index) => (
           <div className="serviceCard" key={index}>
