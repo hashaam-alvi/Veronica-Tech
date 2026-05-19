@@ -56,17 +56,17 @@ html, body {
 
 }
 
+
+
 .VerDesc{
     text-align: center;
     width: 50%;
     margin: 0 auto;
     padding: 0 40px;
     font-size: clamp(1rem, 1.8vw, 1.15rem);
-    line-height: 1.75; /* Premium reading layout height tracking gap */
+    line-height: 1.75; 
     color: #475569;
-    white-space: pre-line; /* 🎯 This tells the browser to render \n as real line breaks */
-    text-align: center;
-    text-justify: inter-word;
+    white-space: pre-line; 
     line-height: 1.8;
 }
 
@@ -93,9 +93,7 @@ html, body {
     text-align: left;
 }
 
-/* ==========================================
-   📱 MOBILE SCREEN MEDIA OVERRIDES (Up to 767px wide)
-   ========================================== */
+
 @media (max-width: 767px) {
     .missionSection {
         flex-direction: column; /* Stacks header above the text block card */
@@ -126,7 +124,8 @@ html, body {
     }
 
     .VerDesc{
-        margin: 0;
+        margin: 0 auto;
         width: 80%;
+        padding: 0 30px;
     }
 }

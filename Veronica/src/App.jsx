@@ -8,6 +8,8 @@ import SideBar from "./Components/SideBar"
 import Home from "./Components/Home";
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
+import Projects from "./Components/Projects/Projects";
+import Services from "./Components/Services/Services.jsx"
 
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
         <div className="appContainer">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/services" element={<Services />} /> */}
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

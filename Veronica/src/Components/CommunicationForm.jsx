@@ -1,4 +1,4 @@
-import "./CommunicationForm.css";
+import "./Styles/CommunicationForm.css";
 import { useState } from "react";
 
 export default function CommunicationForm() {

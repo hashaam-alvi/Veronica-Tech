@@ -1,4 +1,4 @@
-import PageIntoImg from "../PageIntroImg";
+import PageIntroImg from "../PageIntroImg";
 import ContactBG from "../../assets/ContactBG.png"
 import CommunicationForm from "../CommunicationForm";
 import Footer from "../Footer";
@@ -17,7 +17,7 @@ export default function Contact(){
 
     return (
       <>
-        <PageIntoImg
+        <PageIntroImg
           title={imageData.title}
           description={imageData.desc}
           imageSrc={ContactBG}

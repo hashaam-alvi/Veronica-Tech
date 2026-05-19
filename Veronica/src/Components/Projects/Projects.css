@@ -1,0 +1,30 @@
+.ProjectVerHead{
+    color: #00387a;
+    margin: 30px 0;
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: bolder;
+
+}
+
+
+
+.ProjectVerDesc{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.75; 
+    color: #475569;
+    white-space: pre-line; 
+    line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+    .ProjectVerDesc{
+        margin: 0 auto;
+        width: 80%;
+        padding: 0 30px;
+    }
+}

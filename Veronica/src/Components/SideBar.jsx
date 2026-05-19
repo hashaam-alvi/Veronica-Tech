@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./sidebar.css";
+import "./Styles/sidebar.css";
 import VerLogo from "../assets/VeronicaLogo.png"
 import { NavLink } from "react-router-dom";
 
@@ -18,7 +18,9 @@ export default function Sidebar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
+const handleLogoClick = () => {
+  window.location.href = "/";
+}
 
 
   return (
@@ -37,15 +39,15 @@ export default function Sidebar() {
       <div className={`sidebar ${open ? "open" : ""} ${isMobile ? "mobile" : "desktop"}`}>
         <div className="sidebarContainer">
           <div className="sidebar-header">
-            <img className="VeronicaLogoHeader" src={VerLogo} alt="Veronica Tech" />
+            <img onClick={handleLogoClick} className="VeronicaLogoHeader" src={VerLogo} alt="Veronica Tech" />
           </div>
 
           <div className="sidebar-content">
-            <NavLink to="/" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</NavLink>
-            <NavLink to="/e" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Projects</NavLink>
+            <NavLink to="/services" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Services</NavLink>
+            <NavLink to="/projects" className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Our Projects</NavLink>
             <NavLink to="/about"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >About Us</NavLink>
             <NavLink to="/contact"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Contact Us</NavLink>
-            <NavLink to="/d"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</NavLink>
+            <NavLink to="/join-us"  className="sidebarItem" onClick={() => isMobile && setOpen(false)} >Join Us</NavLink>
 
 
           </div>
