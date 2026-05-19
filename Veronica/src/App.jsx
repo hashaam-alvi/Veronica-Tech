@@ -10,6 +10,7 @@ import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Projects/Projects";
 import Services from "./Components/Services/Services.jsx"
+import JoinUs from "./Components/Join/Joinus.jsx";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/join-us" element={<JoinUs />} />
           </Routes>
           </div>
       </BrowserRouter>

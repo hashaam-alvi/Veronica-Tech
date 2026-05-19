@@ -86,6 +86,7 @@ export const officesLocation = [
 
 export const AboutValuesData = [
   {
+    
     title: "Innovation",
     desc: "Continuously pushing boundaries to create impactful solutions."
   },
@@ -193,4 +194,36 @@ export const ourservicesCardsData = [
   image: AImg,
   features: ["Predictive Analytics", "NLP & Chat Solutions", "Workflow Automation"]
 }
+];
+
+import img1 from "../assets/erpService.jpg";
+import img2 from "../assets/erpService.jpg";
+import img3 from "../assets/erpService.jpg";
+import img4 from "../assets/erpService.jpg";
+
+export const processSteps = [
+  {
+    step: "1",
+    title: "Submit Application",
+    desc: "Fill out our custom portal form with your profile, resume, and LinkedIn links.",
+    image: img1,
+  },
+  {
+    step: "2",
+    title: "Expert Evaluation",
+    desc: "Our technical project leads thoroughly review your matching repository code stacks.",
+    image: img2,
+  },
+  {
+    step: "3",
+    title: "Personal Interview",
+    desc: "Engage in a live interactive screen call to discuss dynamic team workflow cultures.",
+    image: img3,
+  },
+  {
+    step: "4",
+    title: "Seamless Onboarding",
+    desc: "Complete your portal digital setup panel and transition smoothly into your active squad.",
+    image: img4,
+  },
 ];
