@@ -4,6 +4,7 @@ import CommunicationForm from "../CommunicationForm";
 import Footer from "../Footer";
 import {officesLocation} from "../SliderContent"
 import "./Contact.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Contact(){
   const imageData = {
@@ -11,8 +12,10 @@ export default function Contact(){
     desc: "Our mission is to harness the power of technology to create innovative, reliable, and impactful solutions that empower businesses and people.",
   };
 
+
+  const navigate = useNavigate();
   const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
     return (

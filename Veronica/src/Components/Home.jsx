@@ -5,6 +5,7 @@ import Slider  from "./Slider";
 import {servicesCardsData , mottoCardsData} from "./SliderContent"
 import CommunicationForm from "./CommunicationForm";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const fullText = "Get the right technology today to reach more customers tomorrow. Our team handles the code so your company can scale without limits.";
@@ -40,17 +41,20 @@ export default function Home() {
 
     return () => clearTimeout(handleTyping);
   }, [displayedText, isDeleting]); // Runs every time the text or mode changes
+ // Add this to your top import strings list
 
+// Inside your main Sidebar() functional component body framework:
+const navigate = useNavigate();
   const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
   const handleAboutRedirect = () => {
-    window.location.href = "/about";
+    navigate("/about");
   };
 
   const handleServicesRedirect = () => {
-    window.location.href = "/services";
+    navigate("/services");
   };
 
 

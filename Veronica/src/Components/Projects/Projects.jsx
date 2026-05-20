@@ -4,7 +4,7 @@ import ProjectBG from "../../assets/ProjectBG.png"
 import Footer from "../Footer";
 import Slider from "../Slider";
 import {pharmaceuticalClientsData} from "../SliderContent"
-
+import { useNavigate } from "react-router-dom";
 
 export default function Projects(){
 const imageData = {
@@ -12,8 +12,9 @@ const imageData = {
     desc: "Explore our portfolio of custom software systems, scalable platforms, and modern web architectures designed to solve complex business problems."
 };
 
+const navigate = useNavigate();
   const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
 const globalFootprintText = [

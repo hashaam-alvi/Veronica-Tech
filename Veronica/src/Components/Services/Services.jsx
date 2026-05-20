@@ -3,7 +3,7 @@ import "./Services.css"
 import ServicesBG from "../../assets/ServicesBG.png";
 import Footer from "../Footer";
 import Cards from "./Cards"
-
+import { useNavigate } from "react-router-dom";
 
 export default function Services () {
 const imageData = {
@@ -11,8 +11,9 @@ const imageData = {
     desc: "From automation and custom system integration to modern user experiences, we build the intelligent technology framework your business needs to lead the industry.",
   };
 
+  const navigate = useNavigate();
     const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
 

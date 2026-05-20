@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Styles/sidebar.css";
 import VerLogo from "../assets/VeronicaLogo.png"
-import { NavLink } from "react-router-dom";
-
+import { NavLink , useNavigate} from "react-router-dom";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -18,8 +17,9 @@ export default function Sidebar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const navigate = useNavigate();
 const handleLogoClick = () => {
-  window.location.href = "/";
+  navigate("/");
 }
 
 

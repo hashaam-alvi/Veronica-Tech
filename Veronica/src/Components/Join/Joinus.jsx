@@ -3,7 +3,7 @@ import JoinBG from "../../assets/JoinBG.png"
 import PageIntroImg from "../PageIntroImg";
 import Footer from "../Footer";
 import JoinUsForm from "./JoinUsForm"
-
+import { useNavigate } from "react-router-dom";
 
 export default function Joinus () {
 const imageData = {
@@ -11,9 +11,9 @@ const imageData = {
     desc: "To cultivate an exceptional engineering environment where developers can challenge boundaries, master scalable architecture, and build robust business automation platforms that define the digital frontier.",
   };
 
-
+const navigate = useNavigate();
   const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
 const whyJoinUsData = [

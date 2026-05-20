@@ -5,6 +5,7 @@ import CommunicationForm from "../CommunicationForm";
 import Footer from "../Footer";
 import Slider from "../Slider";
 import {AboutValuesData , pharmaceuticalClientsData} from "../SliderContent"
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
   const imageData = {
@@ -28,8 +29,9 @@ export default function About() {
       
   ];
 
+const navigate = useNavigate();
   const handleContactRedirect = () => {
-    window.location.href = "/contact";
+    navigate("/contact");
   };
 
 {/*  const logoMeaningText = "At Veronica Tech, our logo reflects who we are and what we stand for:\n\nThe blue arc represents trust, innovation, and technological excellence, our promise to deliver reliable and forward-thinking solutions.The red arc embodies energy, passion, and determination, symbolizing the drive that fuels our breakthroughs and bold ideas.\n\nTogether these arcs form a rising horizon, capturing our vision of progress and the journey toward a smarter, connected future. \n\nJust as the arcs curve upward, we continuously strive to push boundaries and elevate technology to new heights. \n\nOur name and symbol together convey a simple message: Veronica Tech is where passion meets innovation to build the future.";*/}
