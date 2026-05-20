@@ -1,192 +1,174 @@
-/* =========================================================
-   MAIN SECTION WRAPPER
-   ========================================================= */
-.carouselSectionWrapper {
-    position: relative;
-    width: 100%;
-    height: calc(100vh * 5);
-    /* 5 slides example */
-    background: #f8fafc;
+:root {
+  --text-color: #00387a;
+  --bg-color: #f8fafc;
+}
+
+.horizontalScrollContainer {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 📱 Layout bounds configuration for non-pinned containers */
+.horizontalScrollContainer section:not(#sectionPin) {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10vw;
+  background-color: var(--bg-color);
+}
+
+/* Intro and Outro Layout Tweaks */
+.introContent, .outroContent {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  min-height: 60vh;
+}
+
+.mainHeroTitle {
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0;
+  text-transform: uppercase;
+}
+.mainHeroTitle span {
+  display: block;
+}
+
+.subHeroDesc {
+  font-size: 1.1rem;
+  color: #475569;
+  max-width: 300px;
+  line-height: 1.6;
+  margin-top: 40px;
+}
+
+/* 🎯 THE COMPONENT PIN CORE ENGINE WORKSPACE */
+#sectionPin {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  background: #0f172a; /* Clean modern dark slate palette background */
+  color: #f1f5f9;
+}
+
+.pin-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10vw;
+  will-change: transform; /* Boosts browser translation rendering speeds */
+}
+
+/* Flexible item width boundaries inside track */
+.processMainHeadingCard {
+  min-width: 45vw;
+  padding-right: 8vw;
+}
+.processMainHeadingCard h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.4;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+/* Individual Stage Cards setup */
+.processSlideStepItem {
+  min-width: 75vw; /* Sets perfect reading framing block spans */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  padding: 0 5vw;
+  border-left: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.slideImageWrapper {
+  position: relative;
+  flex: 1;
+  height: 65vh;
+  min-width: 35vw;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.slideImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.stepNumberIndicator {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #3b82f6;
+  color: #fff;
+  padding: 6px 14px;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+.slideTextMeta {
+  flex: 1;
+  max-width: 400px;
+}
+
+.slideTitle {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.slideDescription {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.credit a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 800;
 }
 
 /* =========================================================
-   STICKY FULL VIEWPORT
-   ========================================================= */
-.stickyDisplayContainer {
-    position: sticky;
-    top: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 60px 24px;
-    box-sizing: border-box;
-
-    z-index: 10;
-
-    background: #f8fafc;
-}
-
-/* =========================================================
-   TEXT
-   ========================================================= */
-.carouselTextContent {
-    text-align: center;
-    max-width: 700px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 16px;
-
-    margin-bottom: 60px;
-}
-
-.stepBadge {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #3b82f6;
-}
-
-.carouselStepTitle {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: #00387a;
-    margin: 0;
-}
-
-.carouselStepDesc {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #475569;
-    margin: 0;
-}
-
-/* =========================================================
-   GRAPHICS
-   ========================================================= */
-.carouselGraphicsEngine {
-    position: relative;
-
-    width: 100%;
-    max-width: 900px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* IMAGE FRAME */
-.circularImageFrame {
-    position: relative;
-
-    width: 320px;
-    height: 320px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    background: white;
-
-    border: 8px solid white;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.12);
-
-    z-index: 5;
-}
-
-/* IMAGE ANIMATION */
-.carouselGraphicAsset {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform:
-        scale(0.82) rotate(-8deg);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.carouselGraphicAsset.activeSlide {
-    opacity: 1;
-
-    transform:
-        scale(1) rotate(0deg);
-}
-
-/* =========================================================
-   VECTOR ARROWS
-   ========================================================= */
-.vectorArrowLine {
-    position: absolute;
-
-    width: 220px;
-    height: 200px;
-
-    opacity: 0.5;
-}
-
-.leftArrow {
-    left: 80px;
-}
-
-.rightArrow {
-    right: 80px;
-}
-
-/* =========================================================
-   SCROLL TRACKS
-   ========================================================= */
-.scrollTriggerTracks {
-    position: relative;
-    z-index: 1;
-}
-
-.scrollAnchorZone {
-    height: 100vh;
-}
-
-/* =========================================================
-   MOBILE
+   📱 MOBILE FALLBACK OVERRIDES (Up to 767px wide)
    ========================================================= */
 @media (max-width: 767px) {
+  #sectionPin {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .pin-wrap {
+    height: auto !important;
+    flex-direction: column !important; /* Converts stream back into easy mobile vertical scrolls */
+    padding: 40px 24px !important;
+    transform: none !important;
+  }
 
-    .stickyDisplayContainer {
-        padding: 40px 20px;
-    }
+  .processMainHeadingCard, .processSlideStepItem {
+    min-width: 100% !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    padding: 40px 0 !important;
+    gap: 24px !important;
+    border-left: none !important;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  }
 
-    .carouselTextContent {
-        margin-bottom: 40px;
-    }
-
-    .circularImageFrame {
-        width: 220px;
-        height: 220px;
-    }
-
-    .vectorArrowLine {
-        display: none;
-    }
-
-    .carouselStepTitle {
-        font-size: 1.8rem;
-    }
+  .slideImageWrapper {
+    height: 35vh !important;
+    width: 100% !important;
+  }
 }

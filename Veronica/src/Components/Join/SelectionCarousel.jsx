@@ -1,146 +1,85 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { processSteps } from "../SliderContent";
 import "./SelectionCarousel.css";
 
-export default function SelectionCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
+// Register ScrollTrigger securely with GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+export default function HorizontalProcessSlider() {
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    const triggers =
-      containerRef.current.querySelectorAll(".scrollAnchorZone");
+  useGSAP(() => {
+    const pinWrap = containerRef.current.querySelector(".pin-wrap");
+    
+    // 🚚 Calculate total sliding path length dynamically
+    const totalHorizontalScrollAmount = pinWrap.scrollWidth - window.innerWidth;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-
-          if (entry.isIntersecting) {
-            const index = Number(
-              entry.target.dataset.index
-            );
-
-            setActiveIndex(index);
-          }
-
-        });
-      },
-      {
-        threshold: 0.55,
+    gsap.to(pinWrap, {
+      x: -totalHorizontalScrollAmount,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#sectionPin",
+        pin: true,
+        scrub: 1, // Smooth linear catching delay
+        start: "top top",
+        end: () => `+=${pinWrap.scrollWidth}`, // Adjusts tracking duration directly to component sizes
+        invalidateOnRefresh: true, // Fixes display snapping during window resizing
       }
-    );
-
-    triggers.forEach((trigger) => {
-      observer.observe(trigger);
     });
-
-    return () => {
-      triggers.forEach((trigger) => {
-        observer.unobserve(trigger);
-      });
-    };
-  }, []);
+  }, { scope: containerRef });
 
   return (
-    <section
-        className="carouselSectionWrapper"
-        ref={containerRef}
-        style={{
-            height: `${processSteps.length * 50}vh`
-        }}
-        >
-
-      {/* STICKY VIEWPORT */}
-      <div className="stickyDisplayContainer">
-
-        {/* TEXT */}
-        <div className="carouselTextContent">
-
-          <span className="stepBadge">
-            Step 0{processSteps[activeIndex].step}
-          </span>
-
-          <h2 className="carouselStepTitle">
-            {processSteps[activeIndex].title}
-          </h2>
-
-          <p className="carouselStepDesc">
-            {processSteps[activeIndex].desc}
-          </p>
-
+    <div className="horizontalScrollContainer" ref={containerRef}>
+      {/* 🚀 INTRO SECTION */}
+      <section className="introSection" data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <div className="introContent">
+          <h1 className="mainHeroTitle">
+            <span>Candidate</span> <span>Selection</span> <span>Process</span>
+          </h1>
+          <p className="subHeroDesc">Driven smoothly with modern hardware accelerated frontend animation tracks.</p>
         </div>
+      </section>
 
-        {/* GRAPHICS */}
-        <div className="carouselGraphicsEngine">
-
-          <svg
-            className="vectorArrowLine leftArrow"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M 10 100 Q 30 50 85 15"
-              fill="none"
-              stroke="#00387a"
-              strokeWidth="3"
-              strokeDasharray="6,4"
-            />
-            <polygon
-              points="85,15 73,15 80,25"
-              fill="#00387a"
-            />
-          </svg>
-
-          {/* IMAGE FRAME */}
-          <div className="circularImageFrame">
-
-            {processSteps.map((slide, idx) => (
-              <img
-                key={idx}
-                src={slide.image}
-                alt={slide.title}
-                className={`carouselGraphicAsset ${
-                  idx === activeIndex
-                    ? "activeSlide"
-                    : ""
-                }`}
-              />
-            ))}
-
+      {/* ⚓ THE FIXED PINNING HORIZONTAL TRACK */}
+      <section id="sectionPin">
+        <div className="pin-wrap">
+          
+          {/* Introductory Heading Card inside the horizontal stream */}
+          <div className="processMainHeadingCard">
+            <h2>Discover how we discover elite backend and ERP engineering talent.</h2>
           </div>
 
-          <svg
-            className="vectorArrowLine rightArrow"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M 15 15 Q 70 50 90 100"
-              fill="none"
-              stroke="#00387a"
-              strokeWidth="3"
-              strokeDasharray="6,4"
-            />
-            <polygon
-              points="90,100 89,86 79,93"
-              fill="#00387a"
-            />
-          </svg>
+          {/* Map your process steps dynamically */}
+          {processSteps.map((card) => (
+            <div className="processSlideStepItem" key={card.step}>
+              <div className="slideImageWrapper">
+                <img src={card.image} alt={card.title} className="slideImage" />
+                <span className="stepNumberIndicator">0{card.step}</span>
+              </div>
+              <div className="slideTextMeta">
+                <h3 className="slideTitle">{card.title}</h3>
+                <p className="slideDescription">{card.desc}</p>
+              </div>
+            </div>
+          ))}
 
         </div>
-      </div>
+      </section>
 
-      {/* SCROLL TRACKS */}
-      <div className="scrollTriggerTracks">
-
-        {processSteps.map((_, idx) => (
-          <div
-            key={idx}
-            className="scrollAnchorZone"
-            data-index={idx}
-          />
-        ))}
-
-      </div>
-    </section>
+      {/* 🏁 OUTRO SUMMARY CARD */}
+      <section className="outroSection" data-bgcolor="#e3857a" data-textcolor="#f1dba7">
+        <div className="outroContent">
+          <h2>Ready to transform your tech stack?</h2>
+          <h2 className="credit">
+            <a href="https://veronicatechexpo.com" target="_blank" rel="noreferrer">
+              Veronica Tech
+            </a>
+          </h2>
+        </div>
+      </section>
+    </div>
   );
 }
