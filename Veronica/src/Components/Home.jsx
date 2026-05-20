@@ -41,7 +41,17 @@ export default function Home() {
     return () => clearTimeout(handleTyping);
   }, [displayedText, isDeleting]); // Runs every time the text or mode changes
 
-  
+  const handleContactRedirect = () => {
+    window.location.href = "/contact";
+  };
+
+  const handleAboutRedirect = () => {
+    window.location.href = "/about";
+  };
+
+  const handleServicesRedirect = () => {
+    window.location.href = "/services";
+  };
 
 
   return (
@@ -62,7 +72,7 @@ export default function Home() {
           <span className="typingCursor">|</span>
         </p>
         
-        <button className="heroBtn">Get in Touch</button>
+        <button className="heroBtn" onClick={handleContactRedirect}>Get in Touch</button>
       </div>
     </div>
     <div className="servicesSection1">
@@ -77,7 +87,7 @@ export default function Home() {
 
     <Slider mottoCardsData={servicesCardsData} />
     <div className="moreServices-btn">
-      <button className="heroBtn" >View More Services</button>
+      <button className="heroBtn" onClick={handleServicesRedirect}>View More Services</button>
     </div>
 
     
@@ -86,7 +96,7 @@ export default function Home() {
         <p className="homeMoto"> Our mission is to harness the power of technology to create innovative, reliable, and impactful solutions that empower businesses and people. Backed by modern expertise and a passion for digital transformation, we deliver fresh perspectives with enterprise-grade execution. Discover how we turn vision into reality.</p>
     </div>    
       <div className="moreServices-btn">
-        <button className="heroBtn" style={{margin: "40px 0"}}>About Us</button>
+        <button className="heroBtn" style={{margin: "40px 0"}} onClick={handleAboutRedirect}>About Us</button>
       </div>
 
       <CommunicationForm/>

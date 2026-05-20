@@ -2,6 +2,7 @@ import SelectionCarousel from "./SelectionCarousel";
 import JoinBG from "../../assets/JoinBG.png"
 import PageIntroImg from "../PageIntroImg";
 import Footer from "../Footer";
+import JoinUsForm from "./JoinUsForm"
 
 
 export default function Joinus () {
@@ -43,14 +44,17 @@ const whyJoinUsData = [
         />
 
         <h1 className="VerHead">VERONICA</h1>
+
         <div className="VerDesc">
           {whyJoinUsData.map((para, index) => (
-            <p key={index}>{para}</p>
-          ))}
+              <p key={index}>{para}</p>
+            ))}
         </div>
 
         <SelectionCarousel />
-        <h1>211</h1>
+
+        
+        <JoinUsForm/>
         <Footer />
       </div>
     );

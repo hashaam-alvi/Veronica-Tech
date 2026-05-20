@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -35,7 +35,8 @@ export default function HorizontalProcessSlider() {
         <div className="pin-wrap">
           
           <div className="processMainHeadingCard">
-            <h2>Discover how we discover elite backend and ERP engineering talent.</h2>
+            <h2>Your Roadmap to Innovation:</h2>
+            <h3> How We Hire</h3>
           </div>
 
           {processSteps.map((card) => (

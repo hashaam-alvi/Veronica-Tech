@@ -196,10 +196,10 @@ export const ourservicesCardsData = [
 }
 ];
 
-import img1 from "../assets/erpService.jpg";
-import img2 from "../assets/erpService.jpg";
-import img3 from "../assets/erpService.jpg";
-import img4 from "../assets/erpService.jpg";
+import img1 from "../assets/submitApp.png";
+import img2 from "../assets/Evaluation.png";
+import img3 from "../assets/Interview.png";
+import img4 from "../assets/Onboarding.png";
 
 export const processSteps = [
   {
