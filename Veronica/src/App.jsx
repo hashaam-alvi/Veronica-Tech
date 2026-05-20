@@ -11,13 +11,15 @@ import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Projects/Projects";
 import Services from "./Components/Services/Services.jsx"
 import JoinUs from "./Components/Join/Joinus.jsx";
-
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
+
 
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         <SideBar />
         <div className="appContainer">
           <Routes>
