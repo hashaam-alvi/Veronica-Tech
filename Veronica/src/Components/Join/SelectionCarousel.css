@@ -8,7 +8,6 @@
   overflow-x: hidden;
 }
 
-/* 📱 Layout bounds configuration for non-pinned containers */
 .horizontalScrollContainer section:not(#sectionPin) {
   min-height: 100vh;
   width: 100%;
@@ -20,14 +19,6 @@
   background-color: var(--bg-color);
 }
 
-/* Intro and Outro Layout Tweaks */
-.introContent, .outroContent {
-  width: 100%;
-  max-width: 1200px;
-  position: relative;
-  min-height: 60vh;
-}
-
 .mainHeroTitle {
   font-size: clamp(3rem, 7vw, 5rem);
   line-height: 1.1;
@@ -36,6 +27,7 @@
   margin: 0;
   text-transform: uppercase;
 }
+
 .mainHeroTitle span {
   display: block;
 }
@@ -48,13 +40,13 @@
   margin-top: 40px;
 }
 
-/* 🎯 THE COMPONENT PIN CORE ENGINE WORKSPACE */
 #sectionPin {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  background: #0f172a; /* Clean modern dark slate palette background */
+  background: #0f172a; 
   color: #f1f5f9;
+  touch-action: pan-y; 
 }
 
 .pin-wrap {
@@ -63,14 +55,14 @@
   justify-content: flex-start;
   align-items: center;
   padding: 0 10vw;
-  will-change: transform; /* Boosts browser translation rendering speeds */
+  will-change: transform; 
 }
 
-/* Flexible item width boundaries inside track */
 .processMainHeadingCard {
   min-width: 45vw;
   padding-right: 8vw;
 }
+
 .processMainHeadingCard h2 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   line-height: 1.4;
@@ -78,9 +70,8 @@
   color: #3b82f6;
 }
 
-/* Individual Stage Cards setup */
 .processSlideStepItem {
-  min-width: 75vw; /* Sets perfect reading framing block spans */
+  min-width: 75vw; 
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -146,29 +137,37 @@
    ========================================================= */
 @media (max-width: 767px) {
   #sectionPin {
-    height: auto !important;
-    overflow: visible !important;
+    height: 100vh !important; 
+    overflow: hidden !important;
   }
   
   .pin-wrap {
-    height: auto !important;
-    flex-direction: column !important; /* Converts stream back into easy mobile vertical scrolls */
-    padding: 40px 24px !important;
-    transform: none !important;
+    height: 100vh !important;
+    padding: 0 32px !important;
   }
 
-  .processMainHeadingCard, .processSlideStepItem {
-    min-width: 100% !important;
-    width: 100% !important;
+  .processSlideStepItem {
+    min-width: 90vw !important; 
     flex-direction: column !important;
-    padding: 40px 0 !important;
-    gap: 24px !important;
+    gap: 20px !important;
     border-left: none !important;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    border-bottom: none !important;
+    padding: 0 20px !important;
   }
 
   .slideImageWrapper {
     height: 35vh !important;
+    min-width: 100% !important;
     width: 100% !important;
+  }
+
+  .slideTextMeta {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .processMainHeadingCard {
+    min-width: 85vw !important;
+    padding-right: 4vw !important;
   }
 }
