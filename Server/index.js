@@ -28,6 +28,6 @@ app.listen(PORT, () => {
 app.use("/", client_collaborations);
 // app.use("/", rooms);
 
-app.use("/", (req , res)=>{
+app.get("/", (req , res)=>{
   res.send("at Default Root")
 })
