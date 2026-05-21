@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-SliderContent.js
+
+.env
