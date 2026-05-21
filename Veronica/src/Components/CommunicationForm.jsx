@@ -46,22 +46,34 @@ export default function CommunicationForm() {
 
   let handleSubmit = async (event) => {
   event.preventDefault();
-  
-  axios.post(`${BASE_URL}/collaborate`, formData)
-  .then((response) => {
+
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/collaborate`,
+      formData
+    );
+
     if (response.data.success) {
       alert("Request submitted successfully!");
-      
+
       setFormData({
-        fullName: "", email: "", phoneNumber: "",
-        companyName: "", companyUrl: "", services: [], projectDetails: ""
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        companyName: "",
+        companyUrl: "",
+        services: [],
+        projectDetails: "",
       });
     }
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error("Submission failed:", error);
-    alert(error.response?.data?.message || "A network error occurred.");
-  });
+
+    alert(
+      error.response?.data?.message ||
+      "A network error occurred."
+    );
+  }
 };
 
   // const todayStr = new Date().toISOString().split("T")[0];

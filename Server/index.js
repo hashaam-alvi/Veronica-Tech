@@ -8,7 +8,16 @@ const client_collaborations  = require("./Models/client_collaborations");
 
 const db = require("./DB/DB_connection");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://yourfrontend.vercel.app",
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // const io = new Server(server, {
