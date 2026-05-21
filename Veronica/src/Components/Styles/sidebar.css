@@ -197,3 +197,12 @@ body {
     margin-left: 10%;
   }
 }
+
+.menu-btn {
+  transition: transform 0.5s ease-in-out; 
+}
+
+/* Optional: Slight rotation pop effect when the close icon triggers */
+.menu-btn:hover {
+  transform: scale(1.1);
+}

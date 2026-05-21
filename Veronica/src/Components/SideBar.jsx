@@ -20,14 +20,19 @@ export default function Sidebar() {
   const navigate = useNavigate();
 const handleLogoClick = () => {
   navigate("/");
+  isMobile && setOpen(false);
 }
 
 
   return (
     <>
       {/* Toggle Button */}
-      <button className="menu-btn" onClick={() => setOpen(!open)}>
+      {/*<button className="menu-btn" onClick={() => setOpen(!open)}>
         ☰
+      </button>*/}
+
+      <button className="menu-btn" onClick={() => setOpen(!open)}>
+        {open ? "✕" : "☰"}
       </button>
 
       {/* Overlay */}
@@ -52,9 +57,9 @@ const handleLogoClick = () => {
 
           </div>
 
-          <div className="sidebar-footer">
-            <button >Logout</button>
-          </div>
+          {/* <div className="sidebar-footer"> */}
+            {/* <button >Logout</button> */}
+          {/* </div> */}
 
         </div>
       </div>
