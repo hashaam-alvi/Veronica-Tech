@@ -1,5 +1,7 @@
 import "./Styles/CommunicationForm.css";
 import { useState } from "react";
+import {BASE_URL} from "../config";
+import axios from "axios";
 
 export default function CommunicationForm() {
   const [formData, setFormData] = useState({
@@ -28,7 +30,7 @@ export default function CommunicationForm() {
     });
   };
 
-  let handleSubmit = (event) => {
+  {/*let handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
     setFormData({
@@ -40,7 +42,27 @@ export default function CommunicationForm() {
       services: [],
       projectDetails: "",
     });
-  };
+  };*/}
+
+  let handleSubmit = async (event) => {
+  event.preventDefault();
+  
+  axios.post(`${BASE_URL}/collaborate`, formData)
+  .then((response) => {
+    if (response.data.success) {
+      alert("Request submitted successfully!");
+      
+      setFormData({
+        fullName: "", email: "", phoneNumber: "",
+        companyName: "", companyUrl: "", services: [], projectDetails: ""
+      });
+    }
+  })
+  .catch((error) => {
+    console.error("Submission failed:", error);
+    alert(error.response?.data?.message || "A network error occurred.");
+  });
+};
 
   // const todayStr = new Date().toISOString().split("T")[0];
   // const twoDaysAgo = new Date();
