@@ -48,10 +48,7 @@ export default function CommunicationForm() {
   event.preventDefault();
 
   try {
-    const response = await axios.post(
-      `${BASE_URL}/collaborate`,
-      formData
-    );
+    const response = await axios.post(`${BASE_URL}/collaborate`, formData);
 
     if (response.data.success) {
       alert("Request submitted successfully!");

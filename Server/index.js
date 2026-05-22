@@ -15,6 +15,8 @@ app.use(
       "https://yourfrontend.vercel.app",
     ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
