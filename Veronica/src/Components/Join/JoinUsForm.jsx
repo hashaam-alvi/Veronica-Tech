@@ -1,5 +1,7 @@
 import "../Styles/CommunicationForm.css"; 
 import { useState } from "react";
+import {BASE_URL} from "../../config";
+import axios from "axios";
 
 export default function JoinUsForm() {
   const [formData, setFormData] = useState({
@@ -36,43 +38,77 @@ export default function JoinUsForm() {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    // For handling live files/documents alongside strings, developers use FormData API:
-    const dataToSend = new FormData();
-    dataToSend.append("fullName", formData.fullName);
-    dataToSend.append("email", formData.email);
-    dataToSend.append("phoneNumber", formData.phoneNumber);
-    dataToSend.append("portfolioUrl", formData.portfolioUrl);
-    dataToSend.append("linkedinUrl", formData.linkedinUrl);
-    dataToSend.append("coverLetter", formData.coverLetter);
-    dataToSend.append("departments", JSON.stringify(formData.departments));
-    if (formData.resumeFile) {
-      dataToSend.append("resume", formData.resumeFile);
+const handleSubmit = async (event) => {
+
+  event.preventDefault();
+
+  try {
+
+    // CREATE BROWSER FORMDATA
+    const data = new FormData();
+
+    // APPEND ALL FIELDS
+    data.append("fullName", formData.fullName);
+
+    data.append("email", formData.email);
+
+    data.append("phoneNumber", formData.phoneNumber);
+
+    data.append("portfolioUrl", formData.portfolioUrl);
+
+    data.append("linkedinUrl", formData.linkedinUrl);
+
+    // ARRAY MUST BE STRINGIFIED
+    data.append(
+      "departments",
+      JSON.stringify(formData.departments)
+    );
+
+    // FILE
+    data.append(
+      "resumeFile",
+      formData.resumeFile
+    );
+
+    data.append(
+      "coverLetter",
+      formData.coverLetter
+    );
+
+
+
+    const response = await axios.post( `${BASE_URL}/join-us`, data, {
+        headers: { "Content-Type": "multipart/form-data", },
+      }
+    );
+
+    if (response.data.success) {
+
+      alert("Request submitted successfully!");
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        portfolioUrl: "",
+        linkedinUrl: "",
+        departments: [],
+        resumeFile: null,
+        coverLetter: "",
+      });
     }
 
-    console.log("Submitting Application Data Payload:");
-    // For debugging console logs with multipart FormData, map entries:
-    for (let pair of dataToSend.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-    }
+  } catch (error) {
 
-    // Resetting states accurately back to raw fields
-    setFormData({
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      portfolioUrl: "",
-      linkedinUrl: "",
-      departments: [],
-      resumeFile: null,
-      coverLetter: "",
-    });
-    
-    // Reset structural file input element visual values manually
-    document.getElementById("resumeFile").value = "";
-  };
+    console.error("Submission failed:", error);
+
+    alert(
+      error.response?.data?.message ||
+      "A network error occurred."
+    );
+  }
+};
+      
 
   return (
     <>
