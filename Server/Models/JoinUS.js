@@ -9,23 +9,8 @@ const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const uploadMiddleware = require("../config/uploadMiddleware");
 const upload = uploadMiddleware("job-resumes");
 
-// // CLOUDINARY STORAGE
-// const storage = new CloudinaryStorage({
-//   cloudinary: cloudinary,
-
-//   params: {
-//     folder: "job-resumes",
-//     resource_type: "raw",
-//     allowed_formats: ["pdf", "docx"],
-//   },
-// });
-
-// const upload = multer({
-//   storage: storage,
-// });
-
 router.post("/join-us-form", upload.single("resumeFile"), async (req, res) => {
-  console.log("Received form submission with data:");
+//   console.log("Received form submission with data:");
   try {
     const {
       fullName,
@@ -80,18 +65,6 @@ router.post("/join-us-form", upload.single("resumeFile"), async (req, res) => {
   }
 });
 
-/*router.post(
-  "/join-us-form", upload.single("resumeFile"), async (req, res) =>  {
-
-    console.log(req.file);
-    
-
-    
-    res.json({
-      success: true,
-    });
-  }
-);*/
 
 router.get("/join-test", (req, res) => {
   res.send("Server IS live/join-us.js");
