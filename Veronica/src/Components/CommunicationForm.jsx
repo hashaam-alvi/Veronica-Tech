@@ -4,6 +4,7 @@ import {BASE_URL} from "../config";
 import axios from "axios";
 
 export default function CommunicationForm() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -45,6 +46,7 @@ export default function CommunicationForm() {
   };*/}
 
   let handleSubmit = async (event) => {
+  setLoading(true);
   event.preventDefault();
 
   try {
@@ -70,6 +72,8 @@ export default function CommunicationForm() {
       error.response?.data?.message ||
       "A network error occurred."
     );
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -195,8 +199,12 @@ export default function CommunicationForm() {
 
           {/* Submit Button Container */}
           <div className="form-actions">
-            <button type="submit" className="submit-btn">
-              Submit
+            <button
+              type="submit"
+              className={`submit-btn ${loading ? "btn-disabled" : ""}`}
+              disabled={loading}
+            >
+              {loading ? "Submitting Application..." : "Submit Application"}
             </button>
           </div>
         </form>

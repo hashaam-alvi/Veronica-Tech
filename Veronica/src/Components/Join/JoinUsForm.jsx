@@ -4,6 +4,8 @@ import {BASE_URL} from "../../config";
 import axios from "axios";
 
 export default function JoinUsForm() {
+
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -39,9 +41,9 @@ export default function JoinUsForm() {
   };
 
 const handleSubmit = async (event) => {
+  setLoading(true);
 
   event.preventDefault();
-
   try {
 
     // CREATE BROWSER FORMDATA
@@ -106,6 +108,8 @@ const handleSubmit = async (event) => {
       error.response?.data?.message ||
       "A network error occurred."
     );
+  } finally {
+    setLoading(false);
   }
 };
       
@@ -242,8 +246,12 @@ const handleSubmit = async (event) => {
 
           {/* Submit Button */}
           <div className="form-actions">
-            <button type="submit" className="submit-btn">
-              Submit Application
+            <button
+              type="submit"
+              className={`submit-btn ${loading ? "btn-disabled" : ""}`}
+              disabled={loading} // 🎯 Prevents clicks completely while true
+            >
+              {loading ? "Submitting Application..." : "Submit Application"}
             </button>
           </div>
         </form>
