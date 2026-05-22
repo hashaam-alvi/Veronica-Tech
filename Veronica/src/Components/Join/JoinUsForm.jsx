@@ -77,7 +77,7 @@ const handleSubmit = async (event) => {
 
 
 
-    const response = await axios.post( `${BASE_URL}/join-us`, data, {
+    const response = await axios.post( `${BASE_URL}/join-us-form`, data, {
         headers: { "Content-Type": "multipart/form-data", },
       }
     );

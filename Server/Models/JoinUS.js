@@ -25,7 +25,7 @@ const upload = multer({
 });
 
 
-router.post( "/join-us", upload.single("resumeFile"), async (req, res) => {
+router.post( "/join-us-form", upload.single("resumeFile"), async (req, res) => {
 
     try {
 
