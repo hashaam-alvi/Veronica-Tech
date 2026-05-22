@@ -6,42 +6,40 @@ const multer = require("multer");
 const cloudinary = require("../config/cloudinary");
 
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const uploadMiddleware = require("../config/uploadMiddleware");
+const upload = uploadMiddleware("job-resumes");
 
+// // CLOUDINARY STORAGE
+// const storage = new CloudinaryStorage({
+//   cloudinary: cloudinary,
 
-// CLOUDINARY STORAGE
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
+//   params: {
+//     folder: "job-resumes",
+//     resource_type: "raw",
+//     allowed_formats: ["pdf", "docx"],
+//   },
+// });
 
-  params: {
-    folder: "job-resumes",
-    resource_type: "raw",
-    allowed_formats: ["pdf", "docx"],
-  },
-});
+// const upload = multer({
+//   storage: storage,
+// });
 
+router.post("/join-us-form", upload.single("resumeFile"), async (req, res) => {
+  console.log("Received form submission with data:");
+  try {
+    const {
+      fullName,
+      email,
+      phoneNumber,
+      portfolioUrl,
+      linkedinUrl,
+      departments,
+      coverLetter,
+    } = req.body;
 
-const upload = multer({
-  storage: storage,
-});
+    const resumeUrl = req.file.path;
 
-
-router.post( "/join-us-form", upload.single("resumeFile"), async (req, res) => {
-
-    try {
-
-      const {
-        fullName,
-        email,
-        phoneNumber,
-        portfolioUrl,
-        linkedinUrl,
-        departments,
-        coverLetter,
-      } = req.body;
-
-      const resumeUrl = req.file.path;
-
-      const query = `
+    const query = `
         INSERT INTO job_applications
         (
           full_name,
@@ -57,33 +55,46 @@ router.post( "/join-us-form", upload.single("resumeFile"), async (req, res) => {
         ($1,$2,$3,$4,$5,$6,$7,$8)
       `;
 
-      await db.none(query, [
-        fullName,
-        email,
-        phoneNumber,
-        portfolioUrl,
-        linkedinUrl,
-        JSON.parse(departments),
-        resumeUrl,
-        coverLetter,
-      ]);
+    await db.none(query, [
+      fullName,
+      email,
+      phoneNumber,
+      portfolioUrl,
+      linkedinUrl,
+      JSON.parse(departments),
+      resumeUrl,
+      coverLetter,
+    ]);
 
-      res.status(201).json({
-        success: true,
-        message: "Application submitted successfully!",
-      });
+    res.status(201).json({
+      success: true,
+      message: "Application submitted successfully!",
+    });
+  } catch (error) {
+    console.log(error);
 
-    } catch (error) {
-
-      console.log(error);
-
-      res.status(500).json({
-        success: false,
-        message: "Server error",
-      });
-    }
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
-);
+});
 
+/*router.post(
+  "/join-us-form", upload.single("resumeFile"), async (req, res) =>  {
+
+    console.log(req.file);
+    
+
+    
+    res.json({
+      success: true,
+    });
+  }
+);*/
+
+router.get("/join-test", (req, res) => {
+  res.send("Server IS live/join-us.js");
+});
 
 module.exports = router;
