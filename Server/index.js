@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 // const users = require("./models/users");
 const client_collaborations  = require("./Models/client_collaborations");
-const JoinUS  = require("./Models/JoinUs");
+const JoinUS  = require("./Models/JoinUS");
 
 const db = require("./DB/DB_connection");
 
