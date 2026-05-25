@@ -40,6 +40,7 @@ html, body {
     min-width: 250px;
     position: relative;
     left: 100px;
+    z-index: 1;
 }
 
 /* Secondary Bold Contrast Span Selector */
@@ -121,6 +122,7 @@ html, body {
     .missionHeading{
         position: static;
         left: 0;
+        z-index: 1;
     }
 
     .VerDesc{
