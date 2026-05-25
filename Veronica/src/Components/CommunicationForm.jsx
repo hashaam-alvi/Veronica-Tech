@@ -84,8 +84,8 @@ export default function CommunicationForm() {
 
   return (
     <>
-      {/* <Header /> */}
-      <div className="commForm">
+      {/* <Header /> */ }
+      <div className="commForm" id="contactForm">
         <h1 style={{ textAlign: "center", margin: "25px 0", color: "#00387a" }}>
           Lets Collaborate
         </h1>

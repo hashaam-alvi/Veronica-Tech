@@ -6,6 +6,7 @@ import {servicesCardsData , mottoCardsData} from "./SliderContent"
 import CommunicationForm from "./CommunicationForm";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Home() {
   const fullText = "Get the right technology today to reach more customers tomorrow. Our team handles the code so your company can scale without limits.";
@@ -45,9 +46,9 @@ export default function Home() {
 
 // Inside your main Sidebar() functional component body framework:
 const navigate = useNavigate();
-  const handleContactRedirect = () => {
-    navigate("/contact");
-  };
+  // const handleContactRedirect = () => {
+  //   navigate("/contact");
+  // };
 
   const handleAboutRedirect = () => {
     navigate("/about");
@@ -76,7 +77,8 @@ const navigate = useNavigate();
           <span className="typingCursor">|</span>
         </p>
         
-        <button className="heroBtn" onClick={handleContactRedirect}>Get in Touch</button>
+        {/* <button className="heroBtn" onClick={handleContactRedirect}>Get in Touch</button> */}
+        <HashLink  className="heroBtn" smooth to="/contact#contactForm">Get in Touch</HashLink>
       </div>
     </div>
     <div className="servicesSection1">

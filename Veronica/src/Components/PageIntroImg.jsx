@@ -1,5 +1,6 @@
 // import PropTypes from "prop-types";
 import "./Styles/PageIntroImg.css";
+import { HashLink } from "react-router-hash-link";
 
 export default function PageIntoImg({ title, description, imageSrc, onBtnClick }) {
   return (
@@ -27,13 +28,14 @@ export default function PageIntoImg({ title, description, imageSrc, onBtnClick }
           </p>
         )}
         
-        <button 
+        {/* <button 
           className="heroBtn" 
           onClick={onBtnClick}
           type="button"
         >
           Get in Touch
-        </button>
+        </button> */}
+        <HashLink  className="heroBtn" smooth to="/contact#contactForm">Get in Touch</HashLink>
       </div>
     </section>
   );

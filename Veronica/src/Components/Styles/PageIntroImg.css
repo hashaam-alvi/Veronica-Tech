@@ -87,6 +87,7 @@
     margin-bottom: 24px;
     box-shadow: 0 4px 15px #00387a; /* Premium deep brand drop glow */
     box-sizing: border-box;
+    text-decoration: none; 
     /* Ultra-fluid spring motion transition curves for professional responsiveness */
     transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
